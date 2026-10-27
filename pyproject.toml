@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tidy-android-dev-files"
+version = "0.1.0"
+description = "A cautious desktop cleaner for Android Studio and Gradle files."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "Send2Trash>=1.8.3,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3,<10",
+]
+
+[project.gui-scripts]
+tidy-android = "tidy_android.ui:main"
+
+[tool.setuptools.packages.find]
+include = ["tidy_android*"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
